@@ -1,13 +1,14 @@
+import java.util.Locale;
 import java.util.Scanner;
-public class lev14 {
-    public static String uppermanual(String str){
+public class lev15 {
+    public static String lowermanual(String str){
         String result ="";
         for(int i = 0;i<str.length();i++){
             char ch = str.charAt(i);
-            if(ch>='a' && ch<='z'){
-                ch =(char)(ch-32);
+            if(ch>='A'&&ch<='Z'){
+                ch = (char)(ch+32);
             }
-            result += ch;
+            result+=ch;
         }
         return result;
     }
@@ -15,7 +16,7 @@ public class lev14 {
         if(s1.length()!=s2.length()){
             return false;
         }
-        for(int i = 0;i<s1.length();i++){
+        for(int i=0;i<s1.length();i++){
             if(s1.charAt(i)!=s2.charAt(i)){
                 return false;
             }
@@ -26,11 +27,11 @@ public class lev14 {
         Scanner inp = new Scanner(System.in);
         System.out.println("Enter the String: ");
         String str = inp.next();
-        String sub1 = uppermanual(str);
-        String sub2 = str.toUpperCase();
+        String sub1 = lowermanual(str);
+        String sub2 = str.toLowerCase();
         boolean result = compare(sub1,sub2);
-        System.out.println("String converted to uppercase manually: "+sub1);
-        System.out.println("String converted to uppercase by toUpperCase(): "+sub2);
-        System.out.println("are the two results the same? "+result);
+        System.out.println("String converted to lowercase manually: "+sub1);
+        System.out.println("String converted to lowercase by toLowerCase(): "+sub2);
+        System.out.println("are both the results the same? "+result);
     }
 }

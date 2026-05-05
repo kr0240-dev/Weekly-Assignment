@@ -1,28 +1,36 @@
 import java.util.Scanner;
 public class lev12 {
+    public static String createsubstr(String str, int start, int end){
+        String result ="";
+        for(int i = start; i<end;i++){
+            result+=str.charAt(i);
+        }
+        return result;
+    }
+    public static boolean compare(String s1, String s2){
+        if(s1.length() != s2.length()){
+            return false;
+        }
+        for(int i = 0;i<s1.length();i++){
+            if(s1.charAt(i)!= s2.charAt(i)){
+                return false;
+            }
+        }
+        return true;
+    }
     public static void main(String[] args){
         Scanner inp = new Scanner(System.in);
-        int[] num = new int[5];
-        for(int i = 0; i<num.length;i++){
-            System.out.print("Enter the "+(i+1)+"st number:");
-            num[i] = inp.nextInt();
-        }
-        System.out.println("\nChecking the Conditions");
-        for(int i =0;i< num.length;i++){
-            if(num[i]<0){
-                System.out.println(num[i]+" is a negative number");
-            }
-            else if(num[i]>0){
-                if(num[i]%2==0){
-                    System.out.println(num[i]+" is a positive even number");
-                }
-                else if(num[i]%2!=0){
-                    System.out.println(num[i]+" is a positive odd number");
-                }
-            }
-            else{
-                System.out.println(num[i]+" is zero");
-            }
-        }
+        System.out.println("Enter the String: ");
+        String str = inp.next();
+        System.out.println("Enter the Start index: ");
+        int start = inp.nextInt();
+        System.out.println("Enter the End index: ");
+        int end = inp.nextInt();
+        String sub1 = createsubstr(str,start,end);
+        String sub2 = str.substring(start,end);
+        boolean result = compare(sub1,sub2);
+        System.out.println("Substring created manually: "+sub1);
+        System.out.println("Substring created using substring(): "+sub2);
+        System.out.println("Are the two strings created equal? "+result);
     }
 }
